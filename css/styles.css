@@ -1,0 +1,493 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Jokerman", "Comic Sans MS", "Helvetica", "Arial";
+}
+
+.loader {
+    border: 0.25em solid rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    border-top: 0.25em solid rgba(255, 255, 255, 1);
+    border-bottom: 0.25em solid rgba(255, 255, 255, 1);
+    width: 0.5em;
+    height: 0.5em;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+}
+
+.header {
+    grid-area: header;
+}
+
+.content-header {
+    grid-area: content-header;
+}
+
+.content {
+    grid-area: content;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.login {
+    grid-area: login;
+    
+    /* Grid */
+    display: grid;
+    /*grid-gap: 15px;*/
+    grid-template-columns: 1fr 0.5 1fr;
+    grid-template-areas:
+        ". content-header ."
+        ". form-container .";
+}
+
+.form-container {
+    grid-area: form-container;
+}
+
+#login-form {
+    grid-area: login-form;
+    /* Styling */
+    background-color: rgba(100, 100, 100, 1);
+    padding: 1em;
+    border-radius: 0.5em;
+    
+    /* Grid */
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "login-username login-username"
+        "username-input username-input"
+        "login-password login-password"
+        "password-input password-input"
+        "login-submit login-sign-up";
+}
+
+#login-username {
+    grid-area: login-username;
+}
+
+#username-input {
+    grid-area: username-input;
+}
+
+#login-password {
+    grid-area: login-password;
+}
+
+#password-input {
+    grid-area: password-input;
+}
+
+#login-submit {
+    grid-area: login-submit;
+}
+
+#login-sign-up {
+    grid-area: login-sign-up;
+}
+
+.form-button {
+    color: white;
+    background-color: rgba(255, 155, 0, 1);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: none;
+    font-size: 1em;
+}
+
+#login-submit:hover, #login-sign-up:hover {
+    background-color: rgba(205, 105, 0, 1);
+}
+
+.label {
+    color: white;
+    font-size: 1.25em;
+}
+
+.input {
+    border-radius: 0.5em;
+    border: none;
+    padding: 0.5em;
+}
+
+#register-form {
+    grid-area: register-form;
+    /* Styling */
+    background-color: rgba(100, 100, 100, 1);
+    padding: 1em;
+    border-radius: 0.5em;
+    
+    /* Grid */
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "register-name register-surname"
+        "name-input surname-input"
+        "register-username register-username"
+        "username-input username-input"
+        "register-password register-password"
+        "password-input password-input"
+        "register-submit register-cancel";
+}
+
+#register-name {
+    grid-area: register-name;
+}
+
+#name-input {
+    grid-area: name-input;
+}
+
+#register-surname {
+    grid-area: register-surname;
+}
+
+#surname-input {
+    grid-area: surname-input;
+}
+
+#register-username {
+    grid-area: register-username;
+}
+
+#register-password {
+    grid-area: register-password;
+}
+
+#register-submit {
+    grid-area: register-submit;
+}
+
+#register-cancel {
+    grid-area: register-cancel;
+}
+
+/*
+    Main Menu
+*/
+.main-menu {
+    /* Grid */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "menu-panel"
+        "open-games";
+}
+
+#menu-panel {
+    /* Grid */
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 0.5 1fr 0.5fr;
+    grid-template-areas:
+        ". content-header ."
+        ". create-game ."
+        ". leaderboard ."
+        ". my-scores ."
+        ". my-open-games ."
+        ". sign-out .";
+}
+
+#create-game {
+    grid-area: create-game;
+}
+
+#leaderboard {
+    grid-area: leaderboard;
+}
+
+#my-scores {
+    grid-area: my-scores;
+}
+
+#my-open-games {
+    grid-area: my-open-games;
+}
+
+#sign-out {
+    grid-area: sign-out;
+}
+
+.menu-button {
+    padding: 0.65em;
+    font-size: 1em;
+    border-radius: 1em;
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(100, 150, 200, 1);
+}
+
+.menu-button:hover, .game-join-button:hover {
+    cursor: pointer;
+    background-color: rgba(200, 100, 50, 1);
+}
+
+#open-games {
+    grid-area: open-games;
+    /* Grid */
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: 2% 1fr 2%;
+    grid-template-rows: 0.25fr auto;
+    grid-template-areas:
+        ". content-header ."
+        ". open-game-header ."
+        ". open-games-table .";
+}
+
+#open-games-header {
+    grid-area: open-game-header;
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr 1fr 0.25fr;
+    grid-template-areas:
+        ". . . .";
+}
+
+#open-games-table {
+    grid-area: open-games-table;
+    /* Styling */
+    border: 1px solid black;
+}
+
+.open-game-row {
+    grid-area: open-game-row;
+    /* Styling */
+    padding: 0.15em;
+    /* Grid */
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: 0.75fr 1.25fr 1fr 0.25fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "game-host game-title game-start game-join";
+}
+
+.game-host {
+    grid-area: game-host;
+}
+
+.game-title {
+    grid-area: game-title;
+}
+
+.game-start {
+    grid-area: game-start;
+}
+
+.game-join {
+    grid-area: game-join;
+    /* Styling */
+    text-align: center;
+}
+
+.game-join-button {
+    padding: 0.25em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 1em;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(100, 150, 200, 1);
+    border: none;
+}
+
+/*
+    Game
+*/
+.game {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        ". game-grid ."
+        ". game-info .";
+}
+
+#game-grid {
+    grid-area: game-grid;
+    /* Grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.game-grid-cell {
+    background-color: rgba(255, 144, 33, 0.8);
+    display: block;
+    width: 100%;
+    min-width: 12em;
+    max-width: 15em;
+    height: 12em;
+}
+
+.game-grid-cell:hover {
+    cursor: pointer;
+}
+
+.odd {
+    background-color: rgba(250, 179, 1);
+}
+
+.even {
+    background-color: rgba(53, 53, 55, 1);
+}
+
+/*.odd {
+    background-color: rgba(119, 190, 60, 0.8);
+}
+
+.even {
+    background-color: rgba(43, 43, 45, 1);
+}*/
+
+#game-info {
+    grid-area: game-info;
+    font-size: 1em;
+    padding: 1em;
+    background-color: rgba(100, 100, 100, 0.8);
+    /* Grid */
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.25fr;
+    grid-template-areas:
+        ". game-status-message .";
+}
+
+#game-status-message {
+    grid-area: game-status-message;
+    padding-right: 1em;
+}
+
+.game-icon {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+    Leaderboard
+*/
+.leaderboard-grid {
+    display: grid;
+    grid-template-columns: 0.15fr 1fr 0.15fr;
+    grid-template-areas:
+        ". content-header ."
+        ". leaderboard-header ."
+        ". leaderboard-rows .";
+}
+
+#leaderboard-header {
+    padding: 0.5em;
+    grid-area: leaderboard-header;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr 1fr;
+    grid-template-areas:
+        ". . . . .";
+}
+
+#leaderboard-rows {
+    grid-area: leaderboard-rows;
+}
+    
+.leaderboard-row {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr 1fr;
+    grid-template-areas:
+        ". . . . .";
+}
+
+.data-row {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr 0.5fr;
+    grid-template-areas:
+        ". . . . .";
+}
+
+.data-odd {
+    background-color: rgba(165, 195, 250, 1);
+}
+
+.data-even {
+    background-color: rgba(135, 175, 200, 1);
+}
+
+.open-game-grid {
+    display: grid;
+    grid-template-columns: 0.15fr 1fr 0.15fr;
+    grid-template-areas:
+        ". content-header ."
+        ". open-game-header ."
+        ". open-game-rows .";
+}
+
+#open-game-header {
+    padding: 0.5em;
+    grid-area: open-game-header;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr 0.5fr;
+    grid-template-areas:
+        ". . . . .";
+}
+
+#open-game-rows {
+    grid-area: open-game-rows;
+}
+
+/*
+    My Open Games
+*/
+.my-game-grid {
+    display: grid;
+    grid-template-columns: 0.15fr 1fr 0.15fr;
+    grid-template-areas:
+        ". content-header ."
+        ". my-game-header ."
+        ". my-game-rows .";
+}
+
+#my-game-header {
+    padding: 0.5em;
+    grid-area: my-game-header;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-template-areas:
+        ". . . . .";
+}
+
+#my-game-rows {
+    grid-area: my-game-rows;
+}
+
+.my-game-row {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-template-areas:
+        ". . . . .";
+}
